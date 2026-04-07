@@ -1,9 +1,13 @@
+pydantic>=2.0.0
+fastapi
+uvicorn
+openai
+python-dotenv
+pytest
+pyyaml
 gymnasium
 numpy
-stable-baselines3
 flask
 flask-cors
 shimmy[gymnasium]
-fastapi
-uvicorn
 gradio
