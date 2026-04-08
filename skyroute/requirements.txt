@@ -5,7 +5,8 @@ uvicorn[standard]
 python-dotenv
 pyyaml
 gymnasium==0.28.1
-numpy>=1.24.3,<2.0.0
+numpy==1.26.4
 torch
 shimmy>=0.2.1
 stable-baselines3>=2.0.0
+openai>=1.0.0

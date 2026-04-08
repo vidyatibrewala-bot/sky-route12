@@ -1,7 +1,7 @@
 from huggingface_hub import HfApi
 import os
 
-token = "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"
+token = "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"
 repo_id = "happyjourney1/skyroute-dashboard"
 
 api = HfApi()
