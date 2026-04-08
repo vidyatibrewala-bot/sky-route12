@@ -1,7 +1,7 @@
 from huggingface_hub import HfApi
 import os
 
-token = "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"
+token = "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"
 repo_id = "happyjourney1/skyroute-dashboard"
 api = HfApi()
 # Ensure the Space repo exists (create if missing)
