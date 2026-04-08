@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+pydantic>=2.0.0
+fastapi
+uvicorn[standard]
+python-dotenv
+pyyaml
+gymnasium==0.28.1
+numpy>=1.24.3,<2.0.0
+torch
+shimmy>=0.2.1
+stable-baselines3>=2.0.0
