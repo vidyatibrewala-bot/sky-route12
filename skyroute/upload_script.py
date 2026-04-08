@@ -1,7 +1,7 @@
 from huggingface_hub import HfApi
 import os
 
-token = "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"
+token = "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"
 repo_id = "happyjourney1/skyroute-dashboard"
 
 api = HfApi()
@@ -25,9 +25,9 @@ try:
             "legacy/*",
             "drone_backup/*",
             "uv.lock",
-            "pyproject.toml",
-            "netlify.toml",
             ".gitignore",
+            "push_to_github.py",
+            "temp_github_clone/*",
         ]
     )
     print("Upload successful!")
