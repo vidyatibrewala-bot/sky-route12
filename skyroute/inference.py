@@ -7,11 +7,16 @@ This script is the entry point for OpenEnv validation.
 import sys
 import os
 import traceback
+import openai
+import json
 
 def run_inference():
     """Main inference function for drone navigation."""
     try:
         print("[START] SkyRoute Drone Inference Session")
+    # Initialize OpenAI client for LiteLLM proxy
+    openai.api_key = os.getenv("API_KEY")
+    openai.base_url = os.getenv("API_BASE_URL")
 
         # Import dependencies with error handling
         try:
@@ -132,6 +137,27 @@ def run_inference():
         obs, info = env.reset()
         print(f"[STEP] Environment initialized")
         print(f"[STEP] Initial Observation: {obs.tolist()}")
+        # Analyze scenario with LLM via LiteLLM proxy
+        def analyze_scenario_with_llm(obs_list):
+            """Send observation to LLM and return analysis string."""
+            prompt = (
+                "You are an AI assisting a drone navigation simulation. "
+                f"Current observation: {obs_list}. "
+                "Provide a concise analysis of battery level, urgency, and distance to target."
+            )
+            try:
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.0,
+                )
+                return response.choices[0].message.content.strip()
+            except Exception as e:
+                print(f"[WARNING] LLM call failed: {e}")
+                return ""
+        llm_analysis = analyze_scenario_with_llm(obs.tolist())
+        if llm_analysis:
+            print(f"[LLM] {llm_analysis}")
 
         # Run inference loop
         total_reward = 0.0
