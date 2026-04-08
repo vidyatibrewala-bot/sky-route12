@@ -1,7 +1,7 @@
 from huggingface_hub import HfApi
 import os
 
-token = "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"
+token = "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"
 repo_id = "happyjourney1/skyroute-dashboard"
 
 api = HfApi()
@@ -24,7 +24,6 @@ try:
             ".env",
             "legacy/*",
             "drone_backup/*",
-            "uv.lock",
             ".gitignore",
             "push_to_github.py",
             "temp_github_clone/*",
