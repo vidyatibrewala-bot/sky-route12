@@ -1,9 +1,0 @@
-gymnasium
-numpy
-stable-baselines3
-flask
-flask-cors
-shimmy[gymnasium]
-fastapi
-uvicorn
-gradio
